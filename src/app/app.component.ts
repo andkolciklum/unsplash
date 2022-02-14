@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core'
+import { MatSidenav } from '@angular/material/sidenav'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'unsplash-pic-browser';
+  @ViewChild('sidenav') sidenav: MatSidenav;
+
+  sidenavOpened = true
+
+  toggleSidenav() {
+    this.sidenavOpened = !this.sidenavOpened
+    // this.sidenav.close()
+  }
 }
