@@ -1,10 +1,18 @@
 <div class="topic-controls">
-  <button
-    mat-raised-button
-    color="primary"
-    class="sidebar-toggle-btn"
-    (click)="toggleSidenav()"
-  >
-    {{ ((sidebarOpened$ | async) ? 'Hide' : 'Show') + ' topics list' }}
-  </button>
+  <div>
+    <button
+      mat-raised-button
+      color="primary"
+      class="sidebar-toggle-btn"
+      (click)="toggleSidenav()"
+    >
+      {{ ((sidebarOpened$ | async) ? 'Hide' : 'Show') + ' topics list' }}
+    </button>
+  </div>
+  <div>
+    <b>{{ (activeTopic$ | async)?.title }}</b>
+  </div>
+  <div>
+    pagination
+  </div>
 </div>

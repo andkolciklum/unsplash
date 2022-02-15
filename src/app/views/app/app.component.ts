@@ -23,9 +23,8 @@ export class AppComponent implements OnInit {
     this.store.dispatch(topicsLoadingStarted())
     this.apiService
       .getTopics()
-      .pipe(delay(2000))
+      .pipe(delay(2000)) // delay here just to simulate some latency
       .subscribe(topics => {
-        console.log('getPhotos done')
         this.store.dispatch(retrievedTopicsList({ topics }))
         this.store.dispatch(topicsLoadingFinished())
       })

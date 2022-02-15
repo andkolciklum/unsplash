@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { selectSidebarOpened } from '@state/ui/ui.selectors'
+import { selectActiveTopic } from '@state/topics/topics.selectors'
 import { toggleSidebarClicked } from '@state/ui/ui.actions';
 
 @Component({
@@ -14,6 +15,7 @@ export class TopicControlsComponent {
   ) {}
 
   sidebarOpened$ = this.store.select(selectSidebarOpened)
+  activeTopic$ = this.store.select(selectActiveTopic)
   
   toggleSidenav() {
     this.store.dispatch(toggleSidebarClicked())

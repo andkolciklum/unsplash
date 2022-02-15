@@ -28,7 +28,7 @@ export class UnsplashApiService {
   getPhotos(topic: Topic, page: number): Observable<Array<any>> {
     return this.http
       .get<Photo[]>(
-        baseUrl + `/topics/${topic}/photos?page=${page}`, options
+        baseUrl + `/topics/${topic.slug}/photos?page=${page}`, options
       )
       .pipe(map(photos => photos || []));
   }

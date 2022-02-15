@@ -1,16 +1,16 @@
 import { createReducer, on } from '@ngrx/store'
-import { toggleSidebarClicked, topicsLoadingStarted, topicsLoadingFinished } from './ui.actions'
+import { toggleSidebarClicked, topicsLoadingStarted, topicsLoadingFinished, photosLoadingStarted, photosLoadingFinished } from './ui.actions'
 
 export interface UiState {
   sidebarOpened: boolean,
   topicsListLoading: boolean,
-  picturesListLoading: boolean,
+  photosListLoading: boolean,
 }
 
 export const initialState: UiState = {
   sidebarOpened: true,
   topicsListLoading: false,
-  picturesListLoading: false,
+  photosListLoading: false,
 }
 
 export const uiReducer = createReducer(
@@ -34,6 +34,20 @@ export const uiReducer = createReducer(
     state => ({
       ...state,
       topicsListLoading: false,
+    })
+  ),
+  on(
+    photosLoadingStarted,
+    state => ({
+      ...state,
+      photosListLoading: true,
+    })
+  ),
+  on(
+    photosLoadingFinished,
+    state => ({
+      ...state,
+      photosListLoading: false,
     })
   ),
 )

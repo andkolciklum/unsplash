@@ -1,5 +1,7 @@
 export interface Photo {
-  slug: string,
-  title: string,
-  total_photos: number,
+  id: string,
+  description: string | null,
+  urls: {
+    small: string,
+  },
 }
