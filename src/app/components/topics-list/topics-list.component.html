@@ -1,0 +1,11 @@
+<mat-action-list>
+  <h2>Topics list</h2>
+  <div *ngIf="topicsListLoading$ | async" class="spinner-wrapper">
+    <mat-spinner></mat-spinner>
+  </div>
+  <button
+    *ngFor="let topic of topics$ | async"
+    mat-list-item
+    (click)="topicClick(topic)"
+  >{{ topic.title }}</button>
+</mat-action-list>

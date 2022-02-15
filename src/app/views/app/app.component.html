@@ -5,27 +5,15 @@
   hasBackdrop="false"
 >
   <mat-sidenav
-    #sidenav
-    [opened]="sidenavOpened"
+    [opened]="sidebarOpened$ | async"
     mode="side"
   >
-    <app-topics-list *ngIf="sidenavOpened">
-    </app-topics-list>
-    
-    <p>
-      <button
-        mat-icon-button
-        color="primary"
-        (click)="toggleSidenav()"
-        class="sidebar-toggle-btn"
-      >
-        <mat-icon>arrow_back_ios</mat-icon>
-      </button>
-    </p>
+    <app-topics-list></app-topics-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <app-topic-controls></app-topic-controls>
+    <mat-divider></mat-divider>
     <app-topic-pictures></app-topic-pictures>
   </mat-sidenav-content>
 </mat-sidenav-container>

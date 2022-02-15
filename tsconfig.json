@@ -23,7 +23,13 @@
       "es2020",
       "dom"
     ],
-    "types": ["node"]
+    "types": ["node"],
+    "paths": {
+      "@views/*": ["src/app/views/*"],
+      "@components/*": ["src/app/components/*"],
+      "@models/*": ["src/app/models/*"],
+      "@state/*": ["src/app/state/*"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,0 +1,12 @@
+h2 {
+  margin-left: 12px;
+}
+
+.spinner-wrapper {
+  text-align: center;
+  position: relative;
+  margin-top: 100px;
+  .mat-progress-spinner {
+    display: inline-block;
+  }
+}

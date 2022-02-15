@@ -1,19 +1,25 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module'
-import { AppComponent } from './app.component'
+import { AppComponent } from '@views/app/app.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 import { StoreModule } from '@ngrx/store'
+import { uiReducer } from '@state/ui/ui.reducer';
+import { topicsReducer } from '@state/topics/topics.reducer';
 
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatButtonModule } from '@angular/material/button'
-import { MatIconModule } from '@angular/material/icon'
+import { MatListModule } from '@angular/material/list'
+import { MatDividerModule } from '@angular/material/divider'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 
-import { TopicsListComponent } from './topics-list/topics-list.component'
-import { TopicControlsComponent } from './topic-controls/topic-controls.component'
-import { TopicPicturesComponent } from './topic-pictures/topic-pictures.component'
+import { TopicsListComponent } from '@components/topics-list/topics-list.component'
+import { TopicControlsComponent } from '@components/topic-controls/topic-controls.component'
+import { TopicPicturesComponent } from '@components/topic-pictures/topic-pictures.component'
 
 @NgModule({
   declarations: [
@@ -23,14 +29,20 @@ import { TopicPicturesComponent } from './topic-pictures/topic-pictures.componen
     TopicPicturesComponent
   ],
   imports: [
+    HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
     MatButtonModule,
-    MatIconModule,
+    MatListModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({
+      ui: uiReducer,
+      topics: topicsReducer,
+    }, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
