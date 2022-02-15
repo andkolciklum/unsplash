@@ -22,7 +22,7 @@ export class UnsplashApiService {
       .get<Topic[]>(
         baseUrl + '/topics', options
       )
-      .pipe(map(topics => topics || []));
+      .pipe(map(topics => topics || []))
   }
 
   getPhotos(topic: Topic, page: number): Observable<Array<any>> {
@@ -30,6 +30,6 @@ export class UnsplashApiService {
       .get<Photo[]>(
         baseUrl + `/topics/${topic.slug}/photos?page=${page}`, options
       )
-      .pipe(map(photos => photos || []));
+      .pipe(map(photos => photos || []))
   }
 }

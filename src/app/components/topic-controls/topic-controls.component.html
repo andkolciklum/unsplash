@@ -3,7 +3,6 @@
     <button
       mat-raised-button
       color="primary"
-      class="sidebar-toggle-btn"
       (click)="toggleSidenav()"
     >
       {{ ((sidebarOpened$ | async) ? 'Hide' : 'Show') + ' topics list' }}
@@ -12,7 +11,25 @@
   <div>
     <b>{{ (activeTopic$ | async)?.title }}</b>
   </div>
-  <div>
-    pagination
+  <div *ngIf="(activeTopic$ | async)" class="pagination-controls">
+    <button
+      [disabled]="(currentPage$ | async) === 1"
+      mat-raised-button
+      color="primary"
+      (click)="previousPageClicked()"
+    >
+      Prev
+    </button>
+    <div class="page-number">
+      Page {{ (currentPage$ | async) }} of {{ (totalPages$ | async) }}
+    </div>
+    <button
+      [disabled]="(currentPage$ | async) === (totalPages$ | async)"
+      mat-raised-button
+      color="primary"
+      (click)="nextPageClicked()"
+    >
+      Next
+    </button>
   </div>
 </div>

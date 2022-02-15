@@ -12,3 +12,13 @@ export const selectActiveTopic = createSelector(
   selectTopics,
   (state: TopicsState) => state.activeTopic
 )
+
+export const selectCurrentPage = createSelector(
+  selectTopics,
+  (state: TopicsState) => state.currentPage
+)
+
+export const selectTotalPages = createSelector(
+  selectTopics,
+  (state: TopicsState) => state.totalPages
+)

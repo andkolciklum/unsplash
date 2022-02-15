@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     this.store.dispatch(topicsLoadingStarted())
     this.apiService
       .getTopics()
-      .pipe(delay(2000)) // delay here just to simulate some latency
+      .pipe(delay(2000)) // delay here to simulate some latency
       .subscribe(topics => {
         this.store.dispatch(retrievedTopicsList({ topics }))
         this.store.dispatch(topicsLoadingFinished())
